@@ -12,3 +12,7 @@ if (1==1)
 }
 
 print $name, "\n";
+
+my $combinedName = join '', $name, "\n", "Don Salvara";
+
+print $combinedName, "\n";
