@@ -16,3 +16,12 @@ print $name, "\n";
 my $combinedName = join '', $name, "\n", "Don Salvara";
 
 print $combinedName, "\n";
+
+
+# String index
+
+my $str = "String";
+my $index = 2;
+my $char = substr($str, $index, 1);
+
+print $char, "\n";
