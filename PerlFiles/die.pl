@@ -7,10 +7,10 @@ use warnings;
 
 my ($word) = @ARGV;
 
-#if (not defined $word)
-#{
-#    die "Requires an argument to count length\n";
-#}
+if (not defined $word)
+{
+   die "Requires an argument to count length\n";
+}
 
 # one liner equivelant
 
