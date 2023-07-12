@@ -17,13 +17,20 @@ if (-f $path)
 
     # TODO: Implement analysis
     my $chars = 0;
+    my $words = 0;
+    my $lines = 0;
+
     foreach(@lines)
     {
         $chars += length($_);
+        $words += scalar(split(/\s+/, $_)); #words are assumed to be split by one or more spaces
+        $lines++;
     }
 
     print "File statistics:\n";
     print "Characters: $chars\n";
+    print "Words: $words\n";
+    print "Lines: $lines\n";
 }
 else
 {
