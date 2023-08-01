@@ -26,8 +26,14 @@ if (-f $path)
 
     foreach(@lines)
     {
-        $chars += length($_);
-        $words += scalar(split(/\s+/, $_)); # words are assumed to be split by one or more spaces
+        # count the length of each line excluding spaces
+        my $spacelessLine = $_;
+        $spacelessLine =~ s/\s+//g;
+        $chars += length($spacelessLine);
+
+        # words are assumed to be split by one or more spaces
+        $words += scalar(split(/\s+/, $_)); 
+
         $lines++;
 
         foreach my $str (split /\s+/, $_)
