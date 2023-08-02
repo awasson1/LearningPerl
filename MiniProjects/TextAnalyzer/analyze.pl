@@ -23,6 +23,7 @@ if (-f $path)
     my %substringCount;
     my $mostCommonWord = "";
     my $mostCommonWordOccurence = 0;
+    my $longestWord = "";
 
     foreach(@lines)
     {
@@ -32,13 +33,22 @@ if (-f $path)
         $chars += length($spacelessLine);
 
         # words are assumed to be split by one or more spaces
-        $words += scalar(split(/\s+/, $_)); 
+        my $lineSplitToWords = split(/\s+/, $_);
+        $words += scalar($lineSplitToWords); 
 
         $lines++;
 
+        
         foreach my $str (split /\s+/, $_)
         {
+            # count the frequency of each word
             $substringCount{$str}++;
+
+            # check if there is a new longest word
+            if (length($str) > length($longestWord))
+            {
+                $longestWord = $str;
+            }
         }
     }
 
@@ -65,7 +75,8 @@ if (-f $path)
     print "Words: $words\n";
     print "Lines: $lines\n";
     print "Average Word Length: $avgWordLength\n";
-    print "Most common word: \"$mostCommonWord\", with $mostCommonWordOccurence occurences\n"
+    print "Most common word: \"$mostCommonWord\", with $mostCommonWordOccurence occurences\n";
+    print "Longest word: \"$longestWord\"\n";
 }
 else
 {
